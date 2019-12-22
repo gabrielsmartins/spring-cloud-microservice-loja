@@ -70,4 +70,12 @@ public class EnderecoRequestDto {
 		CEP = cEP;
 	}
 
+	@Override
+	public String toString() {
+		return "EnderecoRequestDto [logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro
+				+ ", cidade=" + cidade + ", estado=" + estado + ", CEP=" + CEP + "]";
+	}
+	
+	
+
 }
