@@ -3,6 +3,8 @@ package br.com.alura.microservices.loja.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,6 @@ import br.com.alura.microservices.loja.dto.response.CompraResponseDto;
 import br.com.alura.microservices.loja.entity.CompraEntity;
 import br.com.alura.microservices.loja.mapper.CompraMapper;
 import br.com.alura.microservices.loja.service.CompraService;
-import br.com.alura.microservices.loja.webservice.fornecedor.response.PedidoResponseDto;
 
 @RestController
 @RequestMapping("compra")
@@ -22,15 +23,17 @@ public class CompraController {
 	@Autowired
 	private CompraService compraService;
 	
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> consultaPorId(@PathVariable("id") Long id){
+		 CompraEntity compra = compraService.consultaPorId(id);
+		 CompraResponseDto compraResponseDto = CompraMapper.mapToDto(compra);
+		 return new ResponseEntity<>(compraResponseDto, HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> realizaCompra(@RequestBody CompraRequestDto compraRequestDto){
-		PedidoResponseDto pedidoResponse = compraService.realizaCompra(compraRequestDto);
-		
-		CompraEntity compra = new CompraEntity();
-		compra.setId(pedidoResponse.getId());
-		compra.setTempoPreparo(pedidoResponse.getTempoDePreparo());
-		compra.setEndereco(compraRequestDto.getEndereco().toString());
-		
+        CompraEntity compra = compraService.realizaCompra(compraRequestDto);
 		CompraResponseDto compraResponseDto = CompraMapper.mapToDto(compra);
 		return new ResponseEntity<>(compraResponseDto, HttpStatus.OK);
 	}
