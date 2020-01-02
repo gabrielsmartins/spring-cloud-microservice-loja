@@ -14,6 +14,7 @@ public class CompraMapper {
 		compraResponseDto.setEndereco(compra.getEndereco());
 		compraResponseDto.setId(compra.getId());
 		compraResponseDto.setTempoPreparo(compra.getTempoPreparo());
+		compraResponseDto.setStatus(compra.getState().toString());
 		return compraResponseDto;
 		
 	}

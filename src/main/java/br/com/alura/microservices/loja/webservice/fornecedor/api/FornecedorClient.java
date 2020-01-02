@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.alura.microservices.loja.dto.request.ItemRequestDto;
-import br.com.alura.microservices.loja.webservice.fornecedor.response.FornecedorResponseDto;
-import br.com.alura.microservices.loja.webservice.fornecedor.response.PedidoResponseDto;
+import br.com.alura.microservices.loja.webservice.fornecedor.dto.FornecedorResponseDto;
+import br.com.alura.microservices.loja.webservice.fornecedor.dto.PedidoResponseDto;
 
 @FeignClient("fornecedor")
 public interface FornecedorClient {

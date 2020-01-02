@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import br.com.alura.microservices.loja.dto.request.ItemRequestDto;
-import br.com.alura.microservices.loja.webservice.fornecedor.response.FornecedorResponseDto;
-import br.com.alura.microservices.loja.webservice.fornecedor.response.PedidoResponseDto;
+import br.com.alura.microservices.loja.webservice.fornecedor.dto.FornecedorResponseDto;
+import br.com.alura.microservices.loja.webservice.fornecedor.dto.PedidoResponseDto;
 
 @Component
 public class FornecedorApi {

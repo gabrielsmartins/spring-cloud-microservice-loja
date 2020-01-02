@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "a002e961-8811-45ec-8db7-94edacb37dd7",
+		"name": "Spring Cloud I",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fornecedor",
+			"item": [
+				{
+					"name": "Fornecedor",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "Consulta Por Estado",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/info/SP",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"info",
+												"SP"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Produto",
+					"item": [
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "Consulta Produtos",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8081/produto/SP",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"produto",
+												"SP"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "Realiza Pedido",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "accessToken",
+													"value": "6412cf39-8bd1-4d61-8706-eecc4685a7d2",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"id\": 1,\n        \"quantidade\": 10\n    },\n    {\n        \"id\": 2,\n        \"quantidade\": 5\n    },\n    {\n        \"id\": 3,\n        \"quantidade\": 20\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8081/pedido",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8081",
+											"path": [
+												"pedido"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Loja",
+			"item": [
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "Realiza Compra",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"itens\": [\n        {\n            \"id\": 1,\n            \"quantidade\": 50\n        },\n        {\n            \"id\": 2,\n            \"quantidade\": 2\n        }\n    ],\n    \"endereco\": {\n        \"logroadouro\": \"Av. Paulista\",\n        \"numero\": \"100\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"São Paulo\",\n        \"estado\": \"SP\",\n        \"CEP\": \"07022-350\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/compra",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"compra"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "Consulta Compra por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/compra/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"compra",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Eureka Server",
+			"item": [
+				{
+					"name": "Consulta Apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8761/eureka/apps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8761",
+							"path": [
+								"eureka",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Config Server",
+			"item": [
+				{
+					"name": "Consulta Configuração Fornecedor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/fornecedor/default",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"fornecedor",
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Zuul",
+			"item": [
+				{
+					"name": "Realiza Compra via Gateway",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "6412cf39-8bd1-4d61-8706-eecc4685a7d2",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itens\": [\n        {\n            \"id\": 1,\n            \"quantidade\": 50\n        },\n        {\n            \"id\": 2,\n            \"quantidade\": 2\n        }\n    ],\n    \"endereco\": {\n        \"logroadouro\": \"Av. Paulista\",\n        \"numero\": \"100\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"São Paulo\",\n        \"estado\": \"SP\",\n        \"CEP\": \"07022-350\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/loja/compra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"loja",
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Rotas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5555/actuator/routes",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"actuator",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Por Estado via Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/fornecedor/info/SP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"fornecedor",
+								"info",
+								"SP"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Gera Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "lojapwd",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "loja",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "scope",
+									"value": "web",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "joao",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "joaopwd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8088/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

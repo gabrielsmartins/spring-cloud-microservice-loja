@@ -1,4 +1,4 @@
-package br.com.alura.microservices.loja.webservice.fornecedor.response;
+package br.com.alura.microservices.loja.webservice.fornecedor.dto;
 
 import java.util.List;
 
